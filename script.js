@@ -5,8 +5,13 @@ let memeInsert;
 let memeImage;
 
 // Pega o texto digitado no input e coloca na imagem
-function pegarTextoDoInput(event) {
-  memeText.innerText = textInput.value;
+function pegarTextoDoInput() {
+  // Verifica se a quantidade de caracteres é permitida
+  if (textInput.value.length <= 60) {
+    memeText.innerText = textInput.value;
+  } else {
+    textInput.value = memeText.innerText;
+  }
 }
 
 // Obtem a imagem seleciona
