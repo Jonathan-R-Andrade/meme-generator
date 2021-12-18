@@ -12,9 +12,16 @@
 
 <body>
 
-  <input id="text-input" type="text">
+  <div id="conteiner-input-text">
+    <span>Texto: </span>
+    <input id="text-input" type="text" maxlength="60" placeholder="Escreva um texto aqui" autocomplete="off">
+  </div>
 
-  <input id="meme-insert" type="file" accept="image/*">
+  <div id="conteiner-input-file">
+    <label id="btn-escolher-arquivo" for="meme-insert">Escolher arquivo</label>
+    <span id="file-selected-name">Nenhum arquivo selecionado</span>
+    <input id="meme-insert" type="file" accept="image/*">
+  </div>
 
   <main id="meme-image-container">
     <img id="meme-image" src="">
