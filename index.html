@@ -12,25 +12,32 @@
 
 <body>
 
-  <div id="conteiner-input-text">
-    <span>Texto: </span>
-    <input id="text-input" type="text" maxlength="60" placeholder="Escreva um texto aqui" autocomplete="off">
-  </div>
+  <section id="inputs-container">
+    <div id="container-input-text">
+      <span id=text-input-label>Texto: </span>
+      <input id="text-input" type="text" maxlength="60" placeholder="Escreva um texto aqui" autocomplete="off">
+    </div>
 
-  <div id="conteiner-input-file">
-    <label id="btn-escolher-arquivo" for="meme-insert">Escolher arquivo</label>
-    <span id="file-selected-name">Nenhum arquivo selecionado</span>
-    <input id="meme-insert" type="file" accept="image/*">
-  </div>
+    <div id="container-input-file">
+      <label id="btn-escolher-arquivo" for="meme-insert">Escolher arquivo</label>
+      <span id="file-selected-name">Nenhum arquivo selecionado</span>
+      <input id="meme-insert" type="file" accept="image/*">
+    </div>
+  </section>
 
   <main id="meme-image-container">
-    <img id="meme-image" src="">
+    <img id="meme-image" src="imgs/meme2.png">
     <span id="meme-text"></span>
   </main>
 
-  <button id="fire">Fire</button>
-  <button id="water">Water</button>
-  <button id="earth">Earth</button>
+  <section id="buttons-container">
+    <span id=borders-label>Bordas: </span>
+    <button id="fire" class="button">Fogo</button>
+    <button id="water" class="button">Água</button>
+    <button id="earth" class="button">Terra</button>
+    <button id="default-border" class="button">Padrão</button>
+    <button id="none-border" class="button">Nenhuma</button>
+  </section>
 
   <section id="memes-prontos">
     <h3>Alguns memes famosos:</h3>

@@ -1,4 +1,5 @@
 // Elementos da página
+let textInputLabel;
 let textInput;
 let memeConteiner;
 let memeText;
@@ -7,11 +8,19 @@ let memeImage;
 let btnFire;
 let btnWater;
 let btnEarth;
+let btnDefaultBorder;
+let btnNoneBorder;
 let memesProntos;
 let fileSelectedName;
 
 // Pega o texto digitado no input e coloca na imagem
 function pegarTextoDoInput() {
+  // Se o texto atingir o limite muda a cor do label para vermelho
+  if (textInput.value.length >= 60) {
+    textInputLabel.style.color = 'red';
+  } else {
+    textInputLabel.style.color = '';
+  }
   memeText.innerText = textInput.value;
 }
 
@@ -25,9 +34,15 @@ function obterImagem() {
     const objURL = URL.createObjectURL(memeInsert.files[0]);
     // Adicionado a URL da imagem no elemento img
     memeImage.src = objURL;
-  } else {
-    fileSelectedName.textContent = 'Nenhum arquivo selecionado';
   }
+}
+
+// Estiliza a largura estilo e cor das bordas do elemento HTML
+function estilizarBordasElemento(element, width, style, color) {
+  const e = element;
+  e.style.borderWidth = width;
+  e.style.borderStyle = style;
+  e.style.borderColor = color;
 }
 
 // Estiliza as bordas do conteiner da imagem
@@ -36,17 +51,15 @@ function estilizarBordas(event) {
   const btnId = event.target.id;
 
   if (btnId === 'fire') {
-    memeConteiner.style.borderWidth = '3px';
-    memeConteiner.style.borderStyle = 'dashed';
-    memeConteiner.style.borderColor = 'red';
+    estilizarBordasElemento(memeConteiner, '3px', 'dashed', 'red');
   } else if (btnId === 'water') {
-    memeConteiner.style.borderWidth = '5px';
-    memeConteiner.style.borderStyle = 'double';
-    memeConteiner.style.borderColor = 'blue';
+    estilizarBordasElemento(memeConteiner, '5px', 'double', 'blue');
   } else if (btnId === 'earth') {
-    memeConteiner.style.borderWidth = '6px';
-    memeConteiner.style.borderStyle = 'groove';
-    memeConteiner.style.borderColor = 'green';
+    estilizarBordasElemento(memeConteiner, '6px', 'groove', 'green');
+  } else if (btnId === 'default-border') {
+    estilizarBordasElemento(memeConteiner, '1px', 'solid', 'black');
+  } else {
+    estilizarBordasElemento(memeConteiner, '0', '', '');
   }
 }
 
@@ -54,11 +67,13 @@ function estilizarBordas(event) {
 function selecionaMemePronto(event) {
   if (event.target.tagName === 'IMG') {
     memeImage.src = event.target.src;
+    fileSelectedName.textContent = 'Nenhum arquivo selecionado';
   }
 }
 
 // Pega os elementos da página
 function obterElementos() {
+  textInputLabel = document.getElementById('text-input-label');
   textInput = document.getElementById('text-input');
   memeConteiner = document.getElementById('meme-image-container');
   memeText = document.getElementById('meme-text');
@@ -67,6 +82,8 @@ function obterElementos() {
   btnFire = document.getElementById('fire');
   btnWater = document.getElementById('water');
   btnEarth = document.getElementById('earth');
+  btnDefaultBorder = document.getElementById('default-border');
+  btnNoneBorder = document.getElementById('none-border');
   memesProntos = document.getElementById('memes-prontos');
   fileSelectedName = document.getElementById('file-selected-name');
 }
@@ -78,6 +95,8 @@ function adicionarOuvintes() {
   btnFire.addEventListener('click', estilizarBordas);
   btnWater.addEventListener('click', estilizarBordas);
   btnEarth.addEventListener('click', estilizarBordas);
+  btnDefaultBorder.addEventListener('click', estilizarBordas);
+  btnNoneBorder.addEventListener('click', estilizarBordas);
   memesProntos.addEventListener('click', selecionaMemePronto);
 }
 
