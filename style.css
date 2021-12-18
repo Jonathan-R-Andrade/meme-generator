@@ -5,7 +5,7 @@
 
 #meme-image-container {
   position: relative;
-  width: 200px;
+  width: 300px;
   height: 300px;
   margin: auto;
   border: 1px solid black;
@@ -41,4 +41,10 @@
 
 #earth {
   background-color: green;
+}
+
+.meme-pronto {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
 }

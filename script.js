@@ -7,6 +7,7 @@ let memeImage;
 let btnFire;
 let btnWater;
 let btnEarth;
+let memesProntos;
 
 // Pega o texto digitado no input e coloca na imagem
 function pegarTextoDoInput() {
@@ -48,6 +49,13 @@ function estilizarBordas(event) {
   }
 }
 
+// Seleciona o meme pronto e coloca no conteiner
+function selecionaMemePronto(event) {
+  if (event.target.tagName === 'IMG') {
+    memeImage.src = event.target.src;
+  }
+}
+
 // Pega os elementos da página
 function obterElementos() {
   textInput = document.getElementById('text-input');
@@ -58,6 +66,7 @@ function obterElementos() {
   btnFire = document.getElementById('fire');
   btnWater = document.getElementById('water');
   btnEarth = document.getElementById('earth');
+  memesProntos = document.getElementById('memes-prontos');
 }
 
 // Adiciona ouvintes aos elementos da página
@@ -67,6 +76,7 @@ function adicionarOuvintes() {
   btnFire.addEventListener('click', estilizarBordas);
   btnWater.addEventListener('click', estilizarBordas);
   btnEarth.addEventListener('click', estilizarBordas);
+  memesProntos.addEventListener('click', selecionaMemePronto);
 }
 
 // Executa o código após o carregamento da página
