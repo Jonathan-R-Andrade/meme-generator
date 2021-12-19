@@ -37,12 +37,18 @@ function obterImagem() {
   }
 }
 
+// Estiliza a cor de fundo do conteiner da imagem
+function estilizarFundoConteiner() {
+  memeConteiner.style.backgroundColor = 'rgb(50 , 50 , 50)';
+}
+
 // Estiliza a largura estilo e cor das bordas do elemento HTML
 function estilizarBordasElemento(element, width, style, color) {
   const e = element;
   e.style.borderWidth = width;
   e.style.borderStyle = style;
   e.style.borderColor = color;
+  estilizarFundoConteiner();
 }
 
 // Estiliza as bordas do conteiner da imagem
@@ -67,7 +73,7 @@ function estilizarBordas(event) {
 function selecionaMemePronto(event) {
   if (event.target.tagName === 'IMG') {
     memeImage.src = event.target.src;
-    fileSelectedName.textContent = 'Nenhum arquivo selecionado';
+    fileSelectedName.textContent = 'Nenhuma imagem selecionada';
   }
 }
 
