@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Generator</title>
+  <script src="js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+  <section id="inputs-container">
+    <div id="container-input-text">
+      <span id=text-input-label>Texto: </span>
+      <input id="text-input" type="text" maxlength="60" placeholder="Escreva um texto aqui" autocomplete="off">
+    </div>
+
+    <div id="container-input-file">
+      <label id="btn-escolher-arquivo" for="meme-insert">Escolher imagem</label>
+      <span id="file-selected-name">Nenhuma imagem selecionada</span>
+      <input id="meme-insert" type="file" accept="image/*">
+    </div>
+  </section>
+
+  <main id="meme-image-container">
+    <img id="meme-image" src="imgs/meme2.png">
+    <span id="meme-text"></span>
+  </main>
+
+  <section id="buttons-container">
+    <span id=borders-label>Bordas: </span>
+    <button id="fire" class="button">Fogo</button>
+    <button id="water" class="button">Água</button>
+    <button id="earth" class="button">Terra</button>
+    <button id="default-border" class="button">Padrão</button>
+    <button id="none-border" class="button">Nenhuma</button>
+  </section>
+
+  <section id="memes-prontos">
+    <h3>Alguns memes famosos:</h3>
+    <img id="meme-1" class="meme-pronto" src="imgs/meme1.png">
+    <img id="meme-2" class="meme-pronto" src="imgs/meme2.png">
+    <img id="meme-3" class="meme-pronto" src="imgs/meme3.png">
+    <img id="meme-4" class="meme-pronto" src="imgs/meme4.png">
+  </section>
+
+</body>
+
+</html>
